@@ -7,7 +7,7 @@ from openai import OpenAI
 import re
 
 # --- 設定情報 ---
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "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"
 LINE_ACCESS_TOKEN = "soBlkpHUC02DcHmBGGHyWROtcrBb5xZMSRdqJKXgHJK2M4eRSrmq90vuwvl06FjmtxTpFZHYBzFWGoGX6v/YmYjHwHuR2CVgp1cfK9yx0Xi+uIpY0UUPbmiWaYfnffTz5cVMDPdTGjoB3D9bkbCFmAdB04t89/1O/w1cDnyilFU="
 LINE_CHANNEL_SECRET = "a3ffa60fa2ba996a16ccf47aa481aaec"  # LINE Developersの「チャネル基本情報」にあるChannel Secret
 
