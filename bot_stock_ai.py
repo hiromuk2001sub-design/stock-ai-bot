@@ -1,15 +1,16 @@
+import os
+import re
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import yfinance as yf
 from openai import OpenAI
-import re
 
-# --- 設定情報 ---
-OPENAI_API_KEY = "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"
-LINE_ACCESS_TOKEN = "soBlkpHUC02DcHmBGGHyWROtcrBb5xZMSRdqJKXgHJK2M4eRSrmq90vuwvl06FjmtxTpFZHYBzFWGoGX6v/YmYjHwHuR2CVgp1cfK9yx0Xi+uIpY0UUPbmiWaYfnffTz5cVMDPdTGjoB3D9bkbCFmAdB04t89/1O/w1cDnyilFU="
-LINE_CHANNEL_SECRET = "a3ffa60fa2ba996a16ccf47aa481aaec"  # LINE Developersの「チャネル基本情報」にあるChannel Secret
+# --- Renderの環境変数（Environment）から安全に読み込む設定 ---
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+LINE_ACCESS_TOKEN = os.environ.get("LINE_ACCESS_TOKEN")
+LINE_CHANNEL_SECRET = os.environ.get("LINE_CHANNEL_SECRET")
 
 app = Flask(__name__)
 
@@ -127,6 +128,5 @@ def handle_message(event):
         )
 
 if __name__ == "__main__":
-    import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
